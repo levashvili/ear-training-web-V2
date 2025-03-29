@@ -46,11 +46,30 @@
   background-color: #444;
 }
 
+.key.highlighted {
+  background-color: #4CAF50;
+}
+
+.key.sharp.highlighted {
+  background-color: #45a049;
+}
+
 .note-label {
   font-size: 12px;
   font-weight: 500;
 }
 
+/* Explicitly set text colors for both key types */
+.key.white .note-label {
+  color: #333;
+}
+
 .key.sharp .note-label {
   color: white;
+}
+
+/* Style for the first note label - with higher specificity */
+.key.white .note-label.first-note,
+.key.sharp .note-label.first-note {
+  color: #2196F3;
 } 

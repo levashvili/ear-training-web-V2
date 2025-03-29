@@ -4,9 +4,16 @@ import './Keyboard.css';
 interface KeyboardProps {
   range: [string, string]; // Array of two notes, e.g., ['C4', 'C5']
   onKeyPress: (note: string) => void;
+  noteLabels?: string[]; // Optional array of notes to show labels for
+  highlightedNote?: string; // Optional note to highlight
 }
 
-const Keyboard: React.FC<KeyboardProps> = ({ range, onKeyPress }) => {
+const Keyboard: React.FC<KeyboardProps> = ({ 
+  range, 
+  onKeyPress, 
+  noteLabels = [], 
+  highlightedNote 
+}) => {
   // Define the notes in order
   const notes = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
   
@@ -41,13 +48,20 @@ const Keyboard: React.FC<KeyboardProps> = ({ range, onKeyPress }) => {
     <div className="keyboard">
       {notesInRange.map((note) => {
         const isSharp = note.includes('#');
+        const shouldShowLabel = noteLabels.includes(note);
+        const isFirstNote = note === highlightedNote;
+        
         return (
           <button
             key={note}
             className={`key ${isSharp ? 'sharp' : 'white'}`}
             onClick={() => onKeyPress(note)}
           >
-            <span className="note-label">{note}</span>
+            {shouldShowLabel && (
+              <span className={`note-label ${isFirstNote ? 'first-note' : ''}`}>
+                {note}
+              </span>
+            )}
           </button>
         );
       })}
