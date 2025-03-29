@@ -1,0 +1,56 @@
+.keyboard {
+  display: flex;
+  position: relative;
+  height: 200px;
+  background: #f0f0f0;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.key {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 8px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  transition: background-color 0.1s;
+}
+
+.key.white {
+  width: 40px;
+  height: 100%;
+  background: white;
+  border-radius: 0 0 4px 4px;
+  z-index: 1;
+}
+
+.key.sharp {
+  width: 24px;
+  height: 60%;
+  background: #333;
+  color: white;
+  margin-left: -12px;
+  margin-right: -12px;
+  border-radius: 0 0 4px 4px;
+  z-index: 2;
+}
+
+.key:hover {
+  background-color: #e0e0e0;
+}
+
+.key.sharp:hover {
+  background-color: #444;
+}
+
+.note-label {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.key.sharp .note-label {
+  color: white;
+} 
