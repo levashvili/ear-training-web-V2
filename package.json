@@ -6,11 +6,16 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "download-samples": "node scripts/downloadSamples.js",
+    "download-salamander": "node scripts/downloadSalamanderPiano.js",
+    "download-salamander-original": "node scripts/downloadSalamanderOriginal.js"
   },
   "dependencies": {
+    "@tonejs/piano": "^0.2.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "tone": "^14.7.77"
   },
   "devDependencies": {
     "@types/react": "^18.2.55",
